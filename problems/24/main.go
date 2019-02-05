@@ -2,7 +2,7 @@
 package main
 
 import (
-	"log"
+	"fmt"
 	"testing"
 )
 
@@ -29,7 +29,7 @@ func a(perm []string, nth int) (solution []string) {
 
 func main() {
 	res := a([]string{"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"}, 1e6)
-	log.Println("a:", res)
+	fmt.Println("a:", res)
 	aa := testing.Benchmark(func(b *testing.B) { // ~ 1179 ns/op. pretty good
 		for i := 0; i < b.N; i++ {
 			a([]string{"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"}, 1e6)
