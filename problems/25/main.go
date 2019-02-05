@@ -1,6 +1,8 @@
 // https://projecteuler.net/problem=25
 package main
 
+import "testing"
+
 func fibonacci(n int) (x int) {
 	if n < 3 {
 		return 1
@@ -36,6 +38,12 @@ func a(length int) int {
 func main() {
 	sol := a(1e3)
 	println("a:", sol)
+	aa := testing.Benchmark(func(b *testing.B) {
+		for i := 0; i < b.N; i++ {
+			a(1e3)
+		}
+	})
+	println("a:", aa.String(), aa.MemString())
 }
 
 // Solution is 4782
