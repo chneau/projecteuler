@@ -14,6 +14,7 @@ func factorial(n int) (sum int) {
 	return
 }
 
+// factorial(n) ... n-1 until 1. modulo
 func a(perm []string, nth int) (sol []string) {
 	x := factorial(len(perm))
 	log.Println(x)
