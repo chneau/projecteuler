@@ -4,6 +4,8 @@ package main
 import (
 	"math"
 	"testing"
+
+	"github.com/chneau/tt"
 )
 
 // LIMIT is the max by the theory
@@ -26,7 +28,8 @@ func sumOfDivisors(num int) (sum int) {
 	return
 }
 
-func findAbundantNumbers() (abundants []int) { // ~ 350ns
+func findAbundantNumbers() (abundants []int) { // ~ 38ms
+	defer tt.T()()
 	for i := 1; i < LIMIT; i++ {
 		res := sumOfDivisors(i)
 		if i < res {
