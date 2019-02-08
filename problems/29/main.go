@@ -65,17 +65,37 @@ func b(mina, maxa, minb, maxb int) int {
 	return len(tree)
 }
 
+func powint(a, b int) (res int) {
+	res = 1
+	for i := 0; i < b; i++ {
+		res *= a
+	}
+	return
+}
+
+func c(mina, maxa, minb, maxb int) int {
+	tree := map[int]struct{}{}
+	for a := mina; a <= maxa; a++ {
+		for b := minb; b <= maxb; b++ {
+			tree[powint(a, b)] = struct{}{}
+		}
+	}
+	return len(tree)
+}
+
 func main() {
 	res := a(2, 100, 2, 100)
 	println("a:", res, "FAIL") // 9220
 	res = b(2, 100, 2, 100)
 	println("b:", res) // 9183
-	aaa := testing.Benchmark(func(b *testing.B) {
-		for i := 0; i < b.N; i++ {
-			a(2, 100, 2, 100)
+	res = c(2, 100, 2, 100)
+	println("c:", res, "FAIL") // 6413
+	aaa := testing.Benchmark(func(bb *testing.B) {
+		for i := 0; i < bb.N; i++ {
+			b(2, 100, 2, 100) // slow.
 		}
 	})
-	println("a:", aaa.String(), aaa.MemString())
+	println("b:", aaa.String(), aaa.MemString())
 }
 
 // Solution is 9183
