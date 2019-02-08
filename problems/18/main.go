@@ -35,7 +35,7 @@ func reduce(line []int) (res []int) {
 // eg: [1 5 2 9] becomes [5 5 9] (best of two adjacent)
 // this line is then added to the line above and you can remove the bottomest line of the triangle
 // cool idea, i praise myself \o/
-func a(triangle [][]int) (res int) { // This is Problem 67 proof !
+func a(triangle [][]int) (res int) { // This is Problem 67 proof ! // I hope I will remenber to copy paste !
 	for len(triangle) >= 2 {
 		triLen := len(triangle)
 		line := triangle[triLen-1]
