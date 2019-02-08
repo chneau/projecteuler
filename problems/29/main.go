@@ -55,7 +55,7 @@ func a(mina, maxa, minb, maxb float64) int { // total failure but almost there .
 	return len(tree)
 }
 
-func b(mina, maxa, minb, maxb int) int { // total failure but almost there ... TODO: copy past the 4yo multiplicator
+func b(mina, maxa, minb, maxb int) int {
 	tree := map[string]struct{}{}
 	for a := mina; a <= maxa; a++ {
 		for b := minb; b <= maxb; b++ {
