@@ -6,10 +6,10 @@ import "testing"
 func a(size int) (sum int) {
 	sum = 1
 	for i := 3; i <= size; i += 2 {
-		// sum += i * i
-		// sum += i*i - (i - 1)
-		// sum += i*i - 2*(i-1)
-		// sum += i*i - 3*(i-1)
+		// sum += i * i // top right corner
+		// sum += i*i - (i - 1) // top left corner
+		// sum += i*i - 2*(i-1) // bottom left corner
+		// sum += i*i - 3*(i-1) // bottom right corner
 		sum += 4*i*i - 6*(i-1) // this is faster
 	}
 	return
@@ -18,10 +18,6 @@ func a(size int) (sum int) {
 func b(size int) (sum int) {
 	sum = 1
 	for i := 3; i <= size; i += 2 {
-		// sum += i * i
-		// sum += i*i - (i - 1)
-		// sum += i*i - 2*(i-1)
-		// sum += i*i - 3*(i-1)
 		sum += 4*i*i - 6*i + 6 // this is slower
 	}
 	return
@@ -30,10 +26,6 @@ func b(size int) (sum int) {
 func c(size int) (sum int) {
 	sum = 1
 	for i := 3; i <= size; i += 2 {
-		// sum += i * i
-		// sum += i*i - (i - 1)
-		// sum += i*i - 2*(i-1)
-		// sum += i*i - 3*(i-1)
 		sum += 4*i*i - (6*i - 6) // this is as fast as a ... even a wee bit faster (5ns ~ 1%)
 	}
 	return
